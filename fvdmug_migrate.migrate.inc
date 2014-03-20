@@ -1,6 +1,11 @@
 <?php
 
 /**
+ * @file
+ * FVDMUG Migrate migration hook.
+ */
+
+/**
  * Implements hook_migrate_api().
  */
 function fvdmug_migrate_migrate_api() {

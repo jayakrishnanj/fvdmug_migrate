@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * FVDMUG Migrate installation code.
+ */
+
+/**
+ * Implements hook_enable().
+ */
+function fvdmug_migrate_enable() {
+  Migration::registerMigration('FvdmugImg');
+}
+
+/**
+ * Implements hook_disable().
+ */
+function fvdmug_migrate_disable() {
+  Migration::deregisterMigration('FvdmugImg');
+}

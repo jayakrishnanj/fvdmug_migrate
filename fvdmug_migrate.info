@@ -4,6 +4,6 @@ package = FVDMUG
 core = 7.x
 dependencies[] = migrate
 
-files[] = FvdmugImgMigration.inc
-files[] = FvdmugMigrateItem.inc
-files[] = FvdmugMigrateList.inc
+files[] = FvdmugImgMigration/FvdmugImgMigration.inc
+files[] = FvdmugImgMigration/FvdmugMigrateItem.inc
+files[] = FvdmugImgMigration/FvdmugMigrateList.inc

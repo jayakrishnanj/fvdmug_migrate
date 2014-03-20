@@ -1,1 +1,8 @@
 <?php
+
+/**
+ * @file
+ * FVDMUG Migrate module code.
+ */
+
+// No hooks to provide, this file is necessary for the module's operation.
