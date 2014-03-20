@@ -7,8 +7,15 @@ class FvdmugImgMigration extends DynamicMigration {
 
         $this->description = t('Import image files into nodes.');
 
-        // Set up the source and destination.
-        $this->source = new MigrateSourceList(new FvdmugMigrateList(), new FvdmugMigrateItem());
+        // Since our source (MigrateSourceList) can't be aware of the fields 
+        // available, we'll set that data here. This is not required, only for
+        // reference on the Migration's UI.
+        $fields = array(
+          'id' => t('ID of the image.'),
+          'path' => t('Path to the image.'),
+          'size' => t('Size of the image.'),
+        );
+        $this->source = new MigrateSourceList(new FvdmugMigrateList(), new FvdmugMigrateItem(), $fields);
         $this->destination = new MigrateDestinationNode('fvdmug_image');
 
         // Set up a Map relating source rows to destination records.
@@ -20,10 +27,10 @@ class FvdmugImgMigration extends DynamicMigration {
           ),
         );
         $this->map = new MigrateSQLMap('fvdmug_image', $source_key, MigrateDestinationNode::getKeySchema());
-
+        
         // Mapped fields.
         $this->addFieldMapping('title', 'id');
-        $this->addFieldMapping('promoted', 'promoted');
+        $this->addFieldMapping('promote', 'promote');
         $this->addFieldMapping('field_image', 'path');
         $this->addFieldMapping('field_filesize', 'size');
         $this->addFieldMapping('field_modified', 'modified');
@@ -33,7 +40,10 @@ class FvdmugImgMigration extends DynamicMigration {
         // Here's our chance to adjust the source row prior to being mapped onto
         // the destination fields.
         $row->id .= ' ' . date('g:ia', REQUEST_TIME);
-        
+
+        // Hard code these to be promoted.
+        $row->promote = TRUE;
+
         // We can also provide brand new data.
         $row->modified = filemtime($row->path);
     }

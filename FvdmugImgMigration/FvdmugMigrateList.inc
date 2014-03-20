@@ -38,16 +38,5 @@ class FvdmugMigrateList extends MigrateList {
         $files = array_map('basename', $files);
         return $files;
     }
-
-    /**
-     * 
-     */
-    public function fields() {
-        return array(
-          'id' => t('ID of the image.'),
-          'path' => t('Path to the image.'),
-          'size' => t('Size of the image.'),
-        );
-    }
     
 }
