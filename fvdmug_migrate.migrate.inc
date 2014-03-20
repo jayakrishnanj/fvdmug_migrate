@@ -14,6 +14,7 @@ function fvdmug_migrate_migrate_api() {
     'migrations' => array(
       'FvdmugImg' => array('class_name' => 'FvdmugImgMigration'),
       'FvdmugCsv' => array('class_name' => 'FvdmugCsvMigration'),
+      'FvdmugSql' => array('class_name' => 'FvdmugSqlMigration'),
     ),
   );
   return $api;    

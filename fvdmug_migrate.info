@@ -10,3 +10,4 @@ files[] = FvdmugCsvMigration/FvdmugCsvMigration.inc
 files[] = FvdmugImgMigration/FvdmugImgMigration.inc
 files[] = FvdmugImgMigration/FvdmugMigrateItem.inc
 files[] = FvdmugImgMigration/FvdmugMigrateList.inc
+files[] = FvdmugSqlMigration/FvdmugSqlMigration.inc

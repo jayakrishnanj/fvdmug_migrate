@@ -6,17 +6,190 @@
  */
 
 /**
+ * Implements hook_schema().
+ */
+function fvdmug_migrate_schema() {
+    $schema['fvdmug_migrate_html_colors'] = array(
+      'description' => 'HTML color names and corresponding hex values.',
+      'fields' => array(
+        'color' => array(
+          'description' => 'HTML color name.',
+          'type' => 'varchar',
+          'length' => '255',
+          'not null' => TRUE,
+        ),
+        'hex' => array(
+          'description' => 'Hex value for the color.',
+          'type' => 'varchar',
+          'length' => '7',
+          'not null' => TRUE,
+        ),
+      ),
+      'primary key' => array('color'),
+    );
+    return $schema;
+}
+
+/**
  * Implements hook_enable().
  */
 function fvdmug_migrate_enable() {
-  Migration::registerMigration('FvdmugImg');
-  Migration::registerMigration('FvdmugCsv');
+    Migration::registerMigration('FvdmugImg');
+    Migration::registerMigration('FvdmugCsv');
+    Migration::registerMigration('FvdmugSql');
+
+    // Populate the colors table.
+    $colors['AliceBlue'] = '#F0F8FF';
+    $colors['AntiqueWhite'] = '#FAEBD7';
+    $colors['Aqua'] = '#00FFFF';
+    $colors['Aquamarine'] = '#7FFFD4';
+    $colors['Azure'] = '#F0FFFF';
+    $colors['Beige'] = '#F5F5DC';
+    $colors['Bisque'] = '#FFE4C4';
+    $colors['Black'] = '#000000';
+    $colors['BlanchedAlmond'] = '#FFEBCD';
+    $colors['Blue'] = '#0000FF';
+    $colors['BlueViolet'] = '#8A2BE2';
+    $colors['Brown'] = '#A52A2A';
+    $colors['BurlyWood'] = '#DEB887';
+    $colors['CadetBlue'] = '#5F9EA0';
+    $colors['Chartreuse'] = '#7FFF00';
+    $colors['Chocolate'] = '#D2691E';
+    $colors['Coral'] = '#FF7F50';
+    $colors['CornflowerBlue'] = '#6495ED';
+    $colors['Cornsilk'] = '#FFF8DC';
+    $colors['Crimson'] = '#DC143C';
+    $colors['Cyan'] = '#00FFFF';
+    $colors['DarkBlue'] = '#00008B';
+    $colors['DarkCyan'] = '#008B8B';
+    $colors['DarkGoldenRod'] = '#B8860B';
+    $colors['DarkGray'] = '#A9A9A9';
+    $colors['DarkGreen'] = '#006400';
+    $colors['DarkKhaki'] = '#BDB76B';
+    $colors['DarkMagenta'] = '#8B008B';
+    $colors['DarkOliveGreen'] = '#556B2F';
+    $colors['DarkOrange'] = '#FF8C00';
+    $colors['DarkOrchid'] = '#9932CC';
+    $colors['DarkRed'] = '#8B0000';
+    $colors['DarkSalmon'] = '#E9967A';
+    $colors['DarkSeaGreen'] = '#8FBC8F';
+    $colors['DarkSlateBlue'] = '#483D8B';
+    $colors['DarkSlateGray'] = '#2F4F4F';
+    $colors['DarkTurquoise'] = '#00CED1';
+    $colors['DarkViolet'] = '#9400D3';
+    $colors['DeepPink'] = '#FF1493';
+    $colors['DeepSkyBlue'] = '#00BFFF';
+    $colors['DimGray'] = '#696969';
+    $colors['DodgerBlue'] = '#1E90FF';
+    $colors['FireBrick'] = '#B22222';
+    $colors['FloralWhite'] = '#FFFAF0';
+    $colors['ForestGreen'] = '#228B22';
+    $colors['Fuchsia'] = '#FF00FF';
+    $colors['Gainsboro'] = '#DCDCDC';
+    $colors['GhostWhite'] = '#F8F8FF';
+    $colors['Gold'] = '#FFD700';
+    $colors['GoldenRod'] = '#DAA520';
+    $colors['Gray'] = '#808080';
+    $colors['Green'] = '#008000';
+    $colors['GreenYellow'] = '#ADFF2F';
+    $colors['HoneyDew'] = '#F0FFF0';
+    $colors['HotPink'] = '#FF69B4';
+    $colors['IndianRed'] = '#CD5C5C';
+    $colors['Indigo'] = '#4B0082';
+    $colors['Ivory'] = '#FFFFF0';
+    $colors['Khaki'] = '#F0E68C';
+    $colors['Lavender'] = '#E6E6FA';
+    $colors['LavenderBlush'] = '#FFF0F5';
+    $colors['LawnGreen'] = '#7CFC00';
+    $colors['LemonChiffon'] = '#FFFACD';
+    $colors['LightBlue'] = '#ADD8E6';
+    $colors['LightCoral'] = '#F08080';
+    $colors['LightCyan'] = '#E0FFFF';
+    $colors['LightGoldenRodYellow'] = '#FAFAD2';
+    $colors['LightGray'] = '#D3D3D3';
+    $colors['LightGreen'] = '#90EE90';
+    $colors['LightPink'] = '#FFB6C1';
+    $colors['LightSalmon'] = '#FFA07A';
+    $colors['LightSeaGreen'] = '#20B2AA';
+    $colors['LightSkyBlue'] = '#87CEFA';
+    $colors['LightSlateGray'] = '#778899';
+    $colors['LightSteelBlue'] = '#B0C4DE';
+    $colors['LightYellow'] = '#FFFFE0';
+    $colors['Lime'] = '#00FF00';
+    $colors['LimeGreen'] = '#32CD32';
+    $colors['Linen'] = '#FAF0E6';
+    $colors['Magenta'] = '#FF00FF';
+    $colors['Maroon'] = '#800000';
+    $colors['MediumAquaMarine'] = '#66CDAA';
+    $colors['MediumBlue'] = '#0000CD';
+    $colors['MediumOrchid'] = '#BA55D3';
+    $colors['MediumPurple'] = '#9370DB';
+    $colors['MediumSeaGreen'] = '#3CB371';
+    $colors['MediumSlateBlue'] = '#7B68EE';
+    $colors['MediumSpringGreen'] = '#00FA9A';
+    $colors['MediumTurquoise'] = '#48D1CC';
+    $colors['MediumVioletRed'] = '#C71585';
+    $colors['MidnightBlue'] = '#191970';
+    $colors['MintCream'] = '#F5FFFA';
+    $colors['MistyRose'] = '#FFE4E1';
+    $colors['Moccasin'] = '#FFE4B5';
+    $colors['NavajoWhite'] = '#FFDEAD';
+    $colors['Navy'] = '#000080';
+    $colors['OldLace'] = '#FDF5E6';
+    $colors['Olive'] = '#808000';
+    $colors['OliveDrab'] = '#6B8E23';
+    $colors['Orange'] = '#FFA500';
+    $colors['OrangeRed'] = '#FF4500';
+    $colors['Orchid'] = '#DA70D6';
+    $colors['PaleGoldenRod'] = '#EEE8AA';
+    $colors['PaleGreen'] = '#98FB98';
+    $colors['PaleTurquoise'] = '#AFEEEE';
+    $colors['PaleVioletRed'] = '#DB7093';
+    $colors['PapayaWhip'] = '#FFEFD5';
+    $colors['PeachPuff'] = '#FFDAB9';
+    $colors['Peru'] = '#CD853F';
+    $colors['Pink'] = '#FFC0CB';
+    $colors['Plum'] = '#DDA0DD';
+    $colors['PowderBlue'] = '#B0E0E6';
+    $colors['Purple'] = '#800080';
+    $colors['Red'] = '#FF0000';
+    $colors['RosyBrown'] = '#BC8F8F';
+    $colors['RoyalBlue'] = '#4169E1';
+    $colors['SaddleBrown'] = '#8B4513';
+    $colors['Salmon'] = '#FA8072';
+    $colors['SandyBrown'] = '#F4A460';
+    $colors['SeaGreen'] = '#2E8B57';
+    $colors['SeaShell'] = '#FFF5EE';
+    $colors['Sienna'] = '#A0522D';
+    $colors['Silver'] = '#C0C0C0';
+    $colors['SkyBlue'] = '#87CEEB';
+    $colors['SlateBlue'] = '#6A5ACD';
+    $colors['SlateGray'] = '#708090';
+    $colors['Snow'] = '#FFFAFA';
+    $colors['SpringGreen'] = '#00FF7F';
+    $colors['SteelBlue'] = '#4682B4';
+    $colors['Tan'] = '#D2B48C';
+    $colors['Teal'] = '#008080';
+    $colors['Thistle'] = '#D8BFD8';
+    $colors['Tomato'] = '#FF6347';
+    $colors['Turquoise'] = '#40E0D0';
+    $colors['Violet'] = '#EE82EE';
+    $colors['Wheat'] = '#F5DEB3';
+    $colors['White'] = '#FFFFFF';
+    $colors['WhiteSmoke'] = '#F5F5F5';
+    $colors['Yellow'] = '#FFFF00';
+    $colors['YellowGreen'] = '#9ACD32';
+    foreach ($colors as $color => $hex) {
+        $row = array('color' => $color, 'hex' => $hex);
+        drupal_write_record('fvdmug_migrate_html_colors', $row);
+    }
 }
 
 /**
  * Implements hook_disable().
  */
 function fvdmug_migrate_disable() {
-  Migration::deregisterMigration('FvdmugCsv');
-  Migration::deregisterMigration('FvdmugImg');
+    Migration::deregisterMigration('FvdmugSql');
+    Migration::deregisterMigration('FvdmugCsv');
+    Migration::deregisterMigration('FvdmugImg');
 }

@@ -10,6 +10,46 @@
 function fvdmug_migrate_feature_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'node-fvdmug_color-field_hex'
+  $field_instances['node-fvdmug_color-field_hex'] = array(
+    'bundle' => 'fvdmug_color',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_hex',
+    'label' => 'Hex',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 7,
+      ),
+      'type' => 'text_textfield',
+      'weight' => -4,
+    ),
+  );
+
   // Exported field_instance: 'node-fvdmug_image-field_filesize'
   $field_instances['node-fvdmug_image-field_filesize'] = array(
     'bundle' => 'fvdmug_image',
@@ -348,6 +388,7 @@ function fvdmug_migrate_feature_field_default_field_instances() {
   t('Date and time that the image file on the disk was last modified.');
   t('Description');
   t('Filesize');
+  t('Hex');
   t('Image');
   t('Modified');
   t('Order Number');
