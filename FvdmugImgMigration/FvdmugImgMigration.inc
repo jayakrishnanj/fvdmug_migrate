@@ -1,6 +1,6 @@
 <?php
 
-class FvdmugImgMigration extends DynamicMigration {
+class FvdmugImgMigration extends Migration {
 
     public function __construct() {
         parent::__construct();

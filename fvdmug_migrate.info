@@ -2,8 +2,11 @@ name = FVDMUG Migrate
 description = "Example Migrate module for the Fox Valley Drupal Meetup Group."
 package = FVDMUG
 core = 7.x
+
+dependencies[] =fvdmug_migrate_feature
 dependencies[] = migrate
 
+files[] = FvdmugCsvMigration/FvdmugCsvMigration.inc
 files[] = FvdmugImgMigration/FvdmugImgMigration.inc
 files[] = FvdmugImgMigration/FvdmugMigrateItem.inc
 files[] = FvdmugImgMigration/FvdmugMigrateList.inc

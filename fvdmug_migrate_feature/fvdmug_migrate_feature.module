@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the FVDMUG Migrate Feature feature.
+ */
+
+include_once 'fvdmug_migrate_feature.features.inc';

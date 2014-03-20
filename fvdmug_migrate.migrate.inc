@@ -13,6 +13,7 @@ function fvdmug_migrate_migrate_api() {
     'api' => 2,
     'migrations' => array(
       'FvdmugImg' => array('class_name' => 'FvdmugImgMigration'),
+      'FvdmugCsv' => array('class_name' => 'FvdmugCsvMigration'),
     ),
   );
   return $api;    

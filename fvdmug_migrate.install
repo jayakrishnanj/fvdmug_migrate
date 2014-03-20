@@ -10,11 +10,13 @@
  */
 function fvdmug_migrate_enable() {
   Migration::registerMigration('FvdmugImg');
+  Migration::registerMigration('FvdmugCsv');
 }
 
 /**
  * Implements hook_disable().
  */
 function fvdmug_migrate_disable() {
+  Migration::deregisterMigration('FvdmugCsv');
   Migration::deregisterMigration('FvdmugImg');
 }
