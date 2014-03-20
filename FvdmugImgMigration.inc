@@ -23,7 +23,7 @@ class FvdmugImgMigration extends DynamicMigration {
 
     public function prepareRow($row) {
         // Here's our chance to adjust.
-        //$row->title .= ' ' . date('g:ia', REQUEST_TIME);
+        //$row->id .= ' ' . date('g:ia', REQUEST_TIME);
     }
 
 }
